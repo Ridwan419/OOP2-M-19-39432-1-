@@ -4,58 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabTask_6
+namespace Lab_Task_6
 {
-    class Student
+    class Program
     {
-        private string name;
-
-        public string Name
+        static void Main(string[] args)
         {
-            get { return name; }
-            set { name = value; }
-        }
-        private string id;
-
-        public string Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        private float cgpa;
-
-        public float Cgpa
-        {
-            get { return cgpa; }
-            set { cgpa = value; }
-        }
-
-        private Department dept;
-
-        public Department Dept
-        {
-            get { return dept; }
-            set { dept = value; }
-        }
+            Student s1 = new Student("Ridwan", "111222", 3.10f);
+            Student s2 = new Student("Rijon", "333444", 3.85f);
+            Student s3 = new Student("Jenia", "555666", 3.50f);
 
 
-        public Student() { }
-        public Student(string name, string id, float cgpa)
-        {
-            this.name = name;
-            this.id = id;
-            this.cgpa = cgpa;
-        }
-        public void ShowInfo()
-        {
-            Console.WriteLine("Name: " + name);
-            Console.WriteLine("Id: " + id);
-            Console.WriteLine("Cgpa: " + cgpa);
-        }
-        public void ShowSudentDeatils()
-        {
-            ShowInfo();
-            dept.ShowInfo();
+            Department d1 = new Department("Computer Science", "CS");
+            Department d2 = new Department("Electrical Eng", "EEE");
+            s1.Dept = d1;
+            s2.Dept = d1;
+            s3.Dept = d2;
+            d1.AddStudent(s1, s2);
+            d2.AddStudent(s3);
+
+            s1.ShowDepartmentInfo();
+            s3.ShowDepartmentInfo();
+            Console.WriteLine("############");
+            d1.Name = "Computer Science & Eng";
+            d1.Id = "CSE";
+            s1.ShowDepartmentInfo();
+            d1.PrintStudents();
+            s3.Name = "Jenia";
+            d2.PrintStudents();
         }
     }
 }

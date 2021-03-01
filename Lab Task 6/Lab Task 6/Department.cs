@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabTask_6
 {
-    class Department
+    class Department : Student
     {
         private string name;
 
@@ -51,11 +51,14 @@ namespace LabTask_6
         {
             return null;
         }
-        public Department() { }
+        public Department() {
+            student = new student[60];
+        }
         public Department(string name, string id)
         {
             this.name = name;
             this.id = id;
+            student = new student[60];
         }
         public void ShowInfo()
         {
